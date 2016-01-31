@@ -8,6 +8,12 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 // endbower
 @import "bower_components/font-awesome/scss/font-awesome";
 
+$primary: #26a5d3;
+$dark: #333333;
+$light: #f4f4f4;
+$main-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$heading-font: "Montserrat, " + $main-font;
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -15,83 +21,195 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
   padding: 0.2em 0;
 }
 
+html {
+  width: 100%;
+  height: 100%;
+}
+
 /* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $dark;
+  background-color: $light;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 35px;
+  text-transform: uppercase;
+  font-family: $heading-font;
+  letter-spacing: 1px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+p {
+  margin: 0 0 25px;
+  font-size: 18px;
+  line-height: 1.6em; 
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
+a {
+  color: $primary;
+  &:hover, &:focus {
+    text-decoration: none;
+    color: darken($primary, 20%)
+  } 
+}
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+.navbar {
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  font-family: $heading-font;
+  background-color: $dark;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  &:focus {
+    outline: none;
   }
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.navbar-custom a {
+  color: $light;
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+.navbar-custom .nav li a {
+  transition: background .3s ease-in-out; 
+  &:hover {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2)
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
-  }
+.navbar-toggle {
+  padding: 4px 6px;
+  font-size: 16px;
+  color: $light;
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+@media screen and (min-width: 767px) {
+  .navbar {
+    padding: 20px 0;
+    border-bottom: none;
+    background: transparent;
+    transition: background .5s ease-in-out, padding .5s, ease-in-out; 
+  }
+  
+  .top-nav-collapse {
+    padding: 0;
+    background-color: $dark;
   }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
+  .nav-bar-custom.top-nav-collapse {
+    border-bottom: 1px solid (255, 255, 255, 0.3);
+  }
+}
+
+.intro {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: $light;
+  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+  background-color: $dark;
+  background-size: cover;
+}
+
+.intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.brand-heading {
+  font-size: 40px;
+}
+
+.intro-text {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 767px) {
+  .intro {
+    height: 100%;
+    padding: 0;
   }
 
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
+  .brand-heading {
+    font-size: 100px;
   }
 
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+  .intro-text {
+    font-size: 25px;
   }
+} 
+
+.content-section {
+  padding: 70px 0 40px 0;
+}
+
+.block-icon-left {
+  overflow: auto;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 20px;
+  }
+  
+  .icon-content {
+    float: left;
+    width: 70%;
+  }
+  
+  .icon {
+    float: left;
+    width: 30%;
+    margin-top: 10px;
+  }
+}
+
+.who-section {
+  width: 100%;
+  padding: 50px 0;
+  color: $light;
+  background:transparent url('../img/downloads-bg.jpg') no-repeat center center scroll;
+  background-color: $dark;
+  background-size: cover;
+}
+
+@media screen and (min-width: 767px) {
+   .who-section {
+    padding: 100px 0;
+   }
+}
+
+#clients {
+  text-align: center;
+  padding-bottom: 80px;
+
+  img {
+    margin-right: 30px;
+  }
+}
+#contact {
+  background: $dark;
+  color: $light;
+  padding-bottom: 80px;
+}
+
+footer {
+  margin-top: 10px;
+  padding-top: 30px;
+  height: 80px;
+  text-align: center;
+}
+
+.page-scroll {
+  transition-property: transform;
+  transition-duration: 1s;
 }
